@@ -120,6 +120,12 @@ ext {
 }
 
 dependencies {
+    if (JavaVersion.current().ordinal() > 7) { // Java 9+ compatibility
+	        compile 'javax.xml.bind:jaxb-api:2.2.11'
+	        compile 'com.sun.xml.bind:jaxb-core:2.2.11'
+	        compile 'com.sun.xml.bind:jaxb-impl:2.2.11'
+	        compile 'javax.xml.ws:jaxws-api:2.2.11'
+	    }
     compile "io.netty:netty-all:4.0.30.Final"
     compile "com.madgag.spongycastle:core:${scastleVersion}" // for SHA3 and SECP256K1
     compile "com.madgag.spongycastle:prov:${scastleVersion}" // for SHA3 and SECP256K1
